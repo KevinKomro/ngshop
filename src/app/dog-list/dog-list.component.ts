@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DogsService} from '../dogs.service';
-import { LikeCounter } from '../like-counter';
 import { Dog } from '../dog';
 
 @Component({
@@ -22,8 +21,24 @@ export class DogListComponent implements OnInit {
     this.getUpdates();
   }
 
-  incrementLike(): void{
+  incrementLike(id: string): void{
+    for(let dog in this.dogs) {
+      if(this.dogs[dog].id === id) {
+        this.dogs[dog].likeCount++;
+      }
+    }
+  }
 
+  addFavorite(id: string): void{
+    for(let dog in this.dogs) {
+      if(this.dogs[dog].id === id) {
+        if(this.dogs[dog].favorite === false) {
+          this.dogs[dog].favorite = true;  
+        } else {
+          this.dogs[dog].favorite = false; 
+        }  
+      }
+    }
   }
 
   getUpdates() {
