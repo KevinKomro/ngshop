@@ -1,10 +1,10 @@
 <div>
     <h4>{{ title }}</h4>
     <div class="py-5" >
-        <button class="btn btn-lg" (click)="myFavorites"
+        <button class="btn btn-lg" (click)="myFavorites()"
           [ngClass]="{'red' : myfavorites, 'white' : !myfavorites }">My Favorites</button>
     </div>
-    <div *ngIf="!myfavorite">
+    <div *ngIf="!myfavorites">
         <div *ngFor="let dog of dogs"> 
             <div> {{dog.name}} </div>
             <div> <img [src]="dog.thumbnail"> </div>
@@ -17,7 +17,7 @@
             <span>&nbsp;</span> 
         </div>
     </div>
-    <div *ngIf="myfavorite">
+    <div *ngIf="myfavorites">
         <div *ngFor="let dog of dogs"> 
             <div *ngIf="dog.favorite">
                 <div> {{dog.name}} </div>
@@ -33,3 +33,6 @@
         </div>
     </div>   
 </div>
+
+    
+

@@ -47,14 +47,11 @@ export class DogListComponent implements OnInit {
   }
 
   myFavorites(): void {
-    console.log('beginning');
-    console.log(this.myfavorites);
+    
     if (this.myfavorites) {
       this.myfavorites = false;
     } else {
       this.myfavorites = true;
     }    
-    console.log(this.myfavorites);
-    console.log('the end');
   } 
 }
